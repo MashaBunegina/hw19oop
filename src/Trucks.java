@@ -2,9 +2,17 @@ import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Trucks extends Transport implements Competing{
-    public Trucks(String brand, String model, double engineVolume) {
+    private Capacity capacity;
+
+    public Trucks(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
     }
+        public void setCapacity(Capacity capacity) {
+            this.capacity = capacity;
+        }
+
+
 
     @Override
     public void startMoving() {
@@ -15,6 +23,25 @@ public class Trucks extends Transport implements Competing{
     public void stopMoving() {
         System.out.printf("Закончить движение  ",
                 this.getBrand(), this.getModel());
+    }
+
+    @Override
+    public void printType() {
+
+    }
+
+    @Override
+    public void printCapacity() {
+            if (capacity == null) {
+                System.out.println("данных недосаточно");
+            } else {
+                System.out.println("тип объема" + capacity);
+            }
+        }
+
+    @Override
+    public void printWeight() {
+
     }
 
 
@@ -32,8 +59,8 @@ public class Trucks extends Transport implements Competing{
 
     @Override
     public int maxSpeed() {
-        {return ThreadLocalRandom.current().nextInt(1, 100);
-
+        {
+            return ThreadLocalRandom.current().nextInt(1, 100);
         }
     }
 }

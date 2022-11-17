@@ -1,8 +1,9 @@
 public abstract class Transport {
     private final String brand;
     private final String model;
-    private final  double engineVolume;
-    public Transport( String brand,String model, double engineVolume) {
+    private final double engineVolume;
+
+    public Transport(String brand, String model, double engineVolume) {
         if (brand == null || brand.isEmpty()) {
             this.brand = "default";
         } else {
@@ -15,6 +16,7 @@ public abstract class Transport {
         }
         this.engineVolume = engineVolume;
     }
+
     public abstract void startMoving();
 
     public abstract void stopMoving();
@@ -27,7 +29,13 @@ public abstract class Transport {
         return model;
     }
 
-    public double getEngineVolume(){
+    public double getEngineVolume() {
         return engineVolume;
     }
+
+    public abstract void printType();
+
+    public abstract void printCapacity();
+
+    public abstract void printWeight();
 }
