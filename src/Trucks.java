@@ -43,7 +43,10 @@ public class Trucks extends Transport implements Competing{
     public void printWeight() {
 
     }
-
+    @Override
+    public  void repair() {
+        System.out.println("Грузовик " + getBrand() + getModel() + "починен");
+    }
 
     @Override
     public void pitStop() {
