@@ -59,7 +59,10 @@ public class Trucks extends Transport implements Competing{
         return ThreadLocalRandom.current().nextInt(1, 100);
 
     }
-
+    @Override
+    public boolean service (){
+        return  Math.random() > 0.75;
+    }
     @Override
     public int maxSpeed() {
         {

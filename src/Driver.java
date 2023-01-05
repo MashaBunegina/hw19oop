@@ -42,7 +42,6 @@ public class Driver<T extends  Transport> {
 
     @Override
     public String toString(){
-        return String.format("водитель управляет автомобилем ",
-        this.FIO, this.car.getBrand(), this.car.getModel());
+        return FIO + "стаж вождения" + driversLicense + "категория" + workExperience;
     }
 }

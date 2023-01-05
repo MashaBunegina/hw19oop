@@ -65,7 +65,10 @@ public class Car extends Transport implements Competing {
             System.out.println("тип кузова" + bodyType);
         }
     }
-
+           @Override
+           public boolean service (){
+        return  Math.random() > 0.7;
+           }
     @Override
     public void printCapacity() {
 

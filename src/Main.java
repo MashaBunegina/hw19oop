@@ -8,22 +8,22 @@ public class Main {
         Sponsor lukoil = new Sponsor("Лукоил", 3000000);
         Sponsor michlen = new Sponsor("Мишлен", 200000);
 
-        Car Lada = new Car("Lada ", " Granta", 1.7, BodyType.SEDAN);
-        Lada.addDrivers(new DriverB("Иван Иванов", "B", 20, Lada));
-        Lada.addMechanic(petr);
-        Lada.addSponsor(lukoil, michlen);
+        Car car = new Car("Lada ", " Granta", 1.7, BodyType.SEDAN);
+        car.addDrivers(new DriverB("Иван Иванов", "B", 20, car));
+        car.addMechanic(petr);
+        car.addSponsor(lukoil, michlen);
 
         Car Audi = new Car("Audi ", " A8 50L TDI Quattro", 3.0, BodyType.COUPE);
         Car BMW = new Car("BMW ", " Z8", 3.0, BodyType.PICKUP);
         Car KIA = new Car("KIA ", " Sortage 4-го поколния", 2.4, BodyType.MINIVAN);
-        Trucks Kamaz = new Trucks("Kamaz", "01", 3.0, Capacity.N1);
+        Trucks trucks = new Trucks("Kamaz", "01", 3.0, Capacity.N1);
         Trucks Volvo = new Trucks("Volvo", "02", 5.0, Capacity.N2);
         Trucks DAF = new Trucks("DAF", "03", 5.0, Capacity.N3);
         Trucks Isuzu = new Trucks("ISUZU", "04", 5.0, Capacity.N2);
 
-        Kamaz.addDrivers(new Driver<>("Илья Зедгинидзе", "В", 10, Kamaz));
-        Kamaz.addMechanic(petr);
-        Kamaz.addSponsor(lukoil, michlen);
+        trucks.addDrivers(new Driver<>("Илья Зедгинидзе", "В", 10, trucks));
+        trucks.addMechanic(petr);
+        trucks.addSponsor(lukoil, michlen);
 
         Bus Hyundai = new Bus("Hyundai", "01", 5.0, Weight.AVERAGE);
         Bus Bogdan = new Bus("Bogdan", "02", 5.0, Weight.LARGE);
@@ -36,25 +36,33 @@ public class Main {
         Kia.stopMoving();
         Kia.bestLapTime();
         Kia.toString();
-        Kamaz.toString();
+        trucks.toString();
 
 
-        List<Transport> transports = List.of(Lada, Kamaz, Isuzu);
+        List<Transport> transports = List.of(car, trucks, Isuzu);
         for (Transport transport : transports) printinfo (transport);
+
+        ServiceStation serviceStation = new ServiceStation();
+
+
+        serviceStation.addTruck(trucks);
+        serviceStation.addCar(car);
+        serviceStation.service();
+        serviceStation.service();
     }
     private static void printinfo(Transport transport) {
         System.out.println("иноформ по авто" + transport.getBrand() + "" + transport.getModel());
-        System.out.println("водители");
+        System.out.println("водители" + transport.getDrivers());
         for (Driver<?> driver : transport.getDrivers()) {
             System.out.println(driver.getFIO());
         }
-        System.out.println("Спонсоры");
+        System.out.println("Спонсоры" + transport.getSponsors());
         for (Sponsor sponsor : transport.getSponsors()) {
             System.out.println(sponsor.getName());
         }
-        System.out.println("Механики");
+        System.out.println("Механики" + transport.getMechanics());
         for (Mechanic<?> mechanic : transport.getMechanics()) {
-            System.out.println(mechanic.getName());
+            System.out.println(mechanic.getName() + mechanic.getSurname() + "из" + mechanic.getCompany());
         }
         System.out.println();
     }
