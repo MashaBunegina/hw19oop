@@ -20,7 +20,7 @@ public class Sponsor {
 
     }
     public void toSponsorRace(){
-        System.out.printf("Спонсор %s проспонсировал заезд на %d5n", name, amount);
+        System.out.printf(" Спонсор %s проспонсировал заезд на %d5n  ", name, amount);
     }
 
 
@@ -39,7 +39,7 @@ public class Sponsor {
 
     @Override
     public String toString() {
-        return name + "сумма поддержки" + amount;
+        return name + " " +  "сумма поддержки:  " + amount;
 
     }
 }

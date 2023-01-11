@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Driver<T extends  Transport> {
     private final String FIO;
     public final String driversLicense;
@@ -42,6 +44,18 @@ public class Driver<T extends  Transport> {
 
     @Override
     public String toString(){
-        return FIO + "стаж вождения" + driversLicense + "категория" + workExperience;
+        return FIO + "  стаж вождения:  " + driversLicense + ".  категория:  " + workExperience;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(FIO, driversLicense, workExperience, car);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return workExperience == driver.workExperience && Objects.equals(FIO, driver.FIO) && Objects.equals(driversLicense, driver.driversLicense) && Objects.equals(car, driver.car);
     }
 }

@@ -13,25 +13,25 @@ public class Main {
         car.addMechanic(petr);
         car.addSponsor(lukoil, michlen);
 
-        Car Audi = new Car("Audi ", " A8 50L TDI Quattro", 3.0, BodyType.COUPE);
-        Car BMW = new Car("BMW ", " Z8", 3.0, BodyType.PICKUP);
-        Car KIA = new Car("KIA ", " Sortage 4-го поколния", 2.4, BodyType.MINIVAN);
+        Car audi = new Car("Audi ", " A8 50L TDI Quattro", 3.0, BodyType.COUPE);
+        Car bmw = new Car("BMW ", " Z8", 3.0, BodyType.PICKUP);
+        Car kia = new Car("KIA ", " Sortage 4-го поколния", 2.4, BodyType.MINIVAN);
         Trucks trucks = new Trucks("Kamaz", "01", 3.0, Capacity.N1);
-        Trucks Volvo = new Trucks("Volvo", "02", 5.0, Capacity.N2);
-        Trucks DAF = new Trucks("DAF", "03", 5.0, Capacity.N3);
-        Trucks Isuzu = new Trucks("ISUZU", "04", 5.0, Capacity.N2);
+        Trucks volvo = new Trucks("Volvo", "02", 5.0, Capacity.N2);
+        Trucks daf = new Trucks("DAF", "03", 5.0, Capacity.N3);
+        Trucks isuzu = new Trucks("ISUZU", "04", 5.0, Capacity.N2);
 
         trucks.addDrivers(new Driver<>("Илья Зедгинидзе", "В", 10, trucks));
         trucks.addMechanic(petr);
         trucks.addSponsor(lukoil, michlen);
 
-        Bus Hyundai = new Bus("Hyundai", "01", 5.0, Weight.AVERAGE);
-        Bus Bogdan = new Bus("Bogdan", "02", 5.0, Weight.LARGE);
-        Bus Ikarus = new Bus("Ikarus", "03", 5.0, Weight.SMALL);
+        Bus hyundai = new Bus("Hyundai", "01", 5.0, Weight.AVERAGE);
+        Bus bogdan = new Bus("Bogdan", "02", 5.0, Weight.LARGE);
+        Bus ikarus = new Bus("Ikarus", "03", 5.0, Weight.SMALL);
         Bus Kia = new Bus("KIA", "04", 5.0, Weight.SMALL);
-        DAF.startMoving();
+        daf.startMoving();
 
-        DAF.pitStop();
+        daf.pitStop();
         Kia.pitStop();
         Kia.stopMoving();
         Kia.bestLapTime();
@@ -39,7 +39,7 @@ public class Main {
         trucks.toString();
 
 
-        List<Transport> transports = List.of(car, trucks, Isuzu);
+        List<Transport> transports = List.of(car, trucks, isuzu);
         for (Transport transport : transports) printinfo (transport);
 
         ServiceStation serviceStation = new ServiceStation();
@@ -51,18 +51,18 @@ public class Main {
         serviceStation.service();
     }
     private static void printinfo(Transport transport) {
-        System.out.println("иноформ по авто" + transport.getBrand() + "" + transport.getModel());
-        System.out.println("водители" + transport.getDrivers());
+        System.out.println("информ по авто:  " + transport.getBrand() + "" + transport.getModel());
+        System.out.println("водители  " + transport.getDrivers());
         for (Driver<?> driver : transport.getDrivers()) {
             System.out.println(driver.getFIO());
         }
-        System.out.println("Спонсоры" + transport.getSponsors());
+        System.out.println("Спонсоры   " + transport.getSponsors());
         for (Sponsor sponsor : transport.getSponsors()) {
             System.out.println(sponsor.getName());
         }
-        System.out.println("Механики" + transport.getMechanics());
+        System.out.println("Механики  " + transport.getMechanics());
         for (Mechanic<?> mechanic : transport.getMechanics()) {
-            System.out.println(mechanic.getName() + mechanic.getSurname() + "из" + mechanic.getCompany());
+            System.out.println(mechanic.getName() + "  " + mechanic.getSurname() + "  из  " + mechanic.getCompany());
         }
         System.out.println();
     }

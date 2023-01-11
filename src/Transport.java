@@ -7,6 +7,7 @@ public abstract class Transport {
     private final Set<Driver<?>> drivers = new HashSet<>();
     private final Set<Mechanic<?>> mechanics = new HashSet<>();
     private final Set <Sponsor> sponsors = new HashSet<>();
+
     public Transport(String brand, String model, double engineVolume) {
         if (brand == null || brand.isEmpty()) {
             this.brand = "default";

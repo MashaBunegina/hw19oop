@@ -47,7 +47,6 @@ public class Car extends Transport implements Competing {
 
         }
     }
-
     public String[] getBodyType() {
         String[] type = new String[bodyType.values().length];
         for (int i = 0; i < type.length; i++) {
@@ -80,7 +79,7 @@ public class Car extends Transport implements Competing {
 
                  @Override
         public  void repair(){
-                     System.out.println("Машина " + getBrand() + getModel() + "починена");
+                     System.out.println("Машина " + getBrand() + getModel() + " починена ");
 
     }
 }
